@@ -1,10 +1,8 @@
-# an example, run ftrl on criteo dataset
-
-## Get The Dataset
+Get The Dataset
 
 refer to: https://github.com/guestwalk/kaggle-2014-criteo/blob/master/README, 'Get The Dataset' part.
 
-## Run main_script.sh
+Run main_script.sh
 
 1. transform data
 ./feature_engineer/count.py train.csv > fc.trva.t10.txt
