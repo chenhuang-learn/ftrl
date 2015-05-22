@@ -1,3 +1,7 @@
+A Java Implementation of FTRL and An Example with Criteo Dataset
+==================================================================
+
+
 Get The Dataset
 =================
 refer to: https://github.com/guestwalk/kaggle-2014-criteo/blob/master/README, 'Get The Dataset' part.
@@ -23,6 +27,7 @@ when -m 1, using a hash trick, features are mapped to [1, 1000000]
 when -m 2, no hash trick, features are mapped to [1, 1086921]
 
 3. train ftrl model and progress validation
+main-class: criteo.FTRLLocalTrain.java
 usage: java -jar ftrl_train.jar <input file> <L1> <L2> <alpha> <data_max_index>
 code in main_script---------
 java -jar ftrl_train.jar train_samples_m1 1.0 1.0 0.1 1000000 > m1_result
