@@ -25,9 +25,11 @@ java -jar ftrl_train.jar train_samples_m2 1.0 1.0 0.1 1086921 > m2_result
 use ftrl to train the model, use progressive validation
 progressive validation: get a sample -> predict -> loss -> update model -> get a new sample -> ...
 every 50k samples are processed, the program will print used time and average logloss of latest 250k samples
+global average logloss: about 0.457
 
 4. plot the average logloss
 python plot_progress_validation.py
+
 
 Use feature combination
 =======================
