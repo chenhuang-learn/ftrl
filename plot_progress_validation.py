@@ -2,7 +2,6 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
-# sys.argv[1] : input file
 
 line_indexes = []
 average_loss_1 = []
