@@ -6,22 +6,28 @@ refer to: https://github.com/guestwalk/kaggle-2014-criteo/blob/master/README, 'G
 Run main_script.sh
 ===================
 1. transform data
+code in main_script---------
 ./feature_engineer/count.py train.csv > fc.trva.t10.txt
 ./feature_engineer/parallel_td.py -s 15 ./feature_engineer/transform_data.py train.csv train_trans.csv
+----------------------------
 features(I1-I13) greater than 2 are transformed by: int(log(v)^2)->v
 features(C1-C26) appear less than 10 times are transformed to a special value
 
 2. generate samples
+code in main_script---------
 python feature_engineer/stat_field_info.py train_trans.csv feature_engineer/st_info_file > /dev/null
 ./feature_engineer/parallel_gs.py -s 15 -m 1 ./feature_engineer/get_samples.py train_trans.csv train_samples_m1
 ./feature_engineer/parallel_gs.py -s 15 -m 2 ./feature_engineer/get_samples.py train_trans.csv train_samples_m2
+----------------------------
 when -m 1, using a hash trick, features are mapped to [1, 1000000]
 when -m 2, no hash trick, features are mapped to [1, 1086921]
 
 3. train ftrl model and progress validation
 usage: java -jar ftrl_train.jar <input file> <L1> <L2> <alpha> <data_max_index>
+code in main_script---------
 java -jar ftrl_train.jar train_samples_m1 1.0 1.0 0.1 1000000 > m1_result
 java -jar ftrl_train.jar train_samples_m2 1.0 1.0 0.1 1086921 > m2_result
+----------------------------
 use ftrl to train the model, use progressive validation
 progressive validation: get a sample -> predict -> loss -> update model -> get a new sample -> ...
 every 50k samples are processed, the program will print used time and average logloss of latest 250k samples
@@ -33,7 +39,9 @@ python plot_progress_validation.py
 
 Use feature combination
 =======================
+code in main_script---------
 ./feature_engineer/parallel_gs.py -s 15 -m 3 ./feature_engineer/get_samples.py train_trans.csv train_samples_m3
 java -jar ftrl_train.jar train_samples_m3 1.0 1.0 0.1 6086921 > m3_result
+----------------------------
 need large disk space, take care!
 
