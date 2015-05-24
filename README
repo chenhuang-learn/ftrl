@@ -19,7 +19,7 @@ features(C1-C26) appear less than 10 times are transformed to a special value
 
 2. generate samples
 code in main_script---------
-python feature_engineer/stat_field_info.py train_trans.csv feature_engineer/st_info_file > /dev/null
+python feature_engineer/stat_field_info.py train_trans.csv st_info_file > /dev/null
 ./feature_engineer/parallel_gs.py -s 15 -m 1 ./feature_engineer/get_samples.py train_trans.csv train_samples_m1
 ./feature_engineer/parallel_gs.py -s 15 -m 2 ./feature_engineer/get_samples.py train_trans.csv train_samples_m2
 ----------------------------
