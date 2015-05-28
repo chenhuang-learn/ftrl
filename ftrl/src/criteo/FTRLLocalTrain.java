@@ -34,6 +34,7 @@ public class FTRLLocalTrain {
 			
 			double y = (Integer.parseInt(fields[0]) == 1) ? 1. : -1.;
 			Map<Integer, Double> x = new HashMap<Integer, Double>();
+			x.put(0, 1.);
 			for(int i=1; i<fields.length; i++) {
 				x.put(Integer.parseInt(fields[i]), 1.);
 			}

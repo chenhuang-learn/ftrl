@@ -1,12 +1,12 @@
 #Fat Jar Configuration File
-#Fri May 22 17:15:53 CST 2015
+#Thu May 28 21:49:31 CST 2015
 onejar.license.required=true
 manifest.classpath=
 manifest.removesigners=true
 onejar.checkbox=false
-jarname=ftrl_train.jar
+jarname=ftrl_batch_train.jar
 manifest.mergeall=true
-manifest.mainclass=criteo.FTRLLocalTrain
+manifest.mainclass=criteo.FTRLBatchTrain
 manifest.file=<createnew>
 jarname.isextern=false
 onejar.expand=
